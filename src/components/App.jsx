@@ -14,19 +14,13 @@ const firstContacts = [
 
 export const App = () => {
 
-const [contacts, setContacts] = useState(() => JSON.parse(localStorage.getItem('contacts') ?? firstContacts))
+const [contacts, setContacts] = useState(() => JSON.parse(localStorage.getItem('contacts')) ?? firstContacts)
 const [filter, setFilter] = useState('')
 
 useEffect(() => {
   localStorage.setItem('contacts', JSON.stringify(contacts))
 }, [contacts])
 
-
-  // const componentDidUpdate(prevState) {
-  //   if (this.state.contacts !== prevState.contacts) {
-  //     localStorage.setItem('contacts', JSON.stringify(this.state.contacts))
-  //   }
-  // }
 
   const addContact = newContact => {
     if (
